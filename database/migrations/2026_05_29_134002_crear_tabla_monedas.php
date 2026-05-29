@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('codigos_monedas', function (Blueprint $table) {
+        Schema::create('monedas', function (Blueprint $table) {
             $table->increments('id_moneda');
             $table->string('codigo');
         });
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::drop('codigos_monedas');
+        Schema::drop('monedas');
     }
 };

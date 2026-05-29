@@ -5,6 +5,30 @@
     <title>Casa de cambio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/css/estilo.css">
+
+    <script src="/vuejs/vue.js"></script>
+
+    <script>
+        function RecuperarTipoCambioHoy()
+        {
+            fetch(`http://localhost/api/tipo-cambio/recuperar-tipo-cambio-fecha/2026-05-29`,
+            {        
+                headers: {
+                    "token": 'TOKEN',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                
+            })
+            .catch(error => {
+                console.error('Error al recuperar tipo cambio:', error);
+            });
+        }
+
+        RecuperarTipoCambioHoy();
+        
+    </script>
 </head>
 
 <body>
