@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 use App\Models\TipoCambio;
 
@@ -82,13 +83,22 @@ class TiposCambiosControlador extends Controller
         $respuesta      =   ["success"=>true,"mensaje"=>'Se recupero información',"codigo_error"=>0,'data'=>[]];
 
         try{
-            
             $tipo_cambio = TipoCambio::where("fecha_cambio",$fecha_cambio)->where("habilitado",1)->orderBy("fecha_cambio","desc")->first();
-
+            
+            if(empty($tipo_cambio))
+                $tipo_cambio = TipoCambio::where("habilitado",1)->orderBy("fecha_cambio","desc")->first();
+            
         } catch (Exception $e) {
             $respuesta  =   ["success"=>false,"mensaje"=>'Error al guardar tipo de cambio: ' . $e->getMessage(),"codigo_error"=>$e->getCode(),'data'=>[]];
         }finally {
             return response()->json($tipo_cambio, $respuesta['success']?200:500);
         }
+    }
+
+    public function VerReporteTiposCambio(Request $request):View
+    {
+         return view('administrador.reporte-tipos-cambio', [
+            'tipos_cambios' => TipoCambio::with('Moneda')->orderBy("fecha_cambio","desc")->get()
+        ]);
     }
 }

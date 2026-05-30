@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class TipoCambio extends Model
 {
@@ -26,4 +27,9 @@ class TipoCambio extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    public function Moneda(): HasOne
+    {
+        return $this->hasOne(Moneda::class,"id_moneda","id_moneda");
+    }
 }
