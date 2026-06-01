@@ -159,7 +159,7 @@
                             </li>
                         </ul>
                         <li class="texto-cuerpo-formulario-compra-venta">
-                            <span>Precio por Dolar:@{{ tipo_cambio }}</span>
+                            <span>Precio por Dolar: S/ @{{ FormatearMonto(tipo_cambio) }}</span>
                         </li>
                         <ul class="texto-inferior-cuerpo-formulario-compra-venta">
                             <li>
@@ -460,7 +460,9 @@
                     console.error('Error al recuperar tipo cambio:', error);
                 });
             },
-            
+            FormatearMonto:function(monto,cantidad_decimales=2){
+                return (Math.round(monto * 100) / 100).toFixed(cantidad_decimales);
+            },
         }
     });
 </script>
