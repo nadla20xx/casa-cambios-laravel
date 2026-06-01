@@ -127,6 +127,7 @@ section .contenedor-seccion {
     flex-direction: row;
     align-items: center;
     row-gap: 20px;
+    column-gap: 24px;
 }
 
 .pagina-informacion-1-texto {

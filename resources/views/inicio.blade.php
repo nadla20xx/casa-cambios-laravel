@@ -185,9 +185,96 @@
             <div class="contenedor-seccion">
                 <ul class="pagina-informacion-1">
                     <li>
-                        <img width="566" height="320"
-                            src="https://dollarclick.com.pe/storage/2022/01/Mesa-de-trabajo-1-copia-5.png"
-                            srcset="https://dollarclick.com.pe/storage/2022/01/Mesa-de-trabajo-1-copia-5.png 566w, https://dollarclick.com.pe/storage/2022/01/Mesa-de-trabajo-1-copia-5-300x170.png 300w">
+                        <svg class="logo-formulario" width="370" height="370" viewBox="0 0 1200 1200" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+
+                                <!-- Background -->
+                                <rect width="1200" height="1200" fill="white" />
+
+                                <!-- Circular Finance Symbol -->
+                                <circle cx="600" cy="250" r="140" stroke="#0A2A73" stroke-width="3" opacity="0.25" />
+
+                                <!-- Gold Arrow -->
+                                <path d="M520 190
+                    A110 110 0 0 1 690 180" stroke="#D4A62A" stroke-width="22" stroke-linecap="round" fill="none" />
+
+                                <polygon points="685,160 730,180 695,205" fill="#D4A62A" />
+
+                                <!-- Blue Arrow -->
+                                <path d="M680 310
+                    A110 110 0 0 1 520 300" stroke="#0A2A73" stroke-width="22" stroke-linecap="round" fill="none" />
+
+                                <polygon points="525,325 485,295 535,285" fill="#0A2A73" />
+
+                                <!-- Statistics Bars -->
+                                <rect x="560" y="250" width="22" height="45" fill="#0A2A73" />
+                                <rect x="595" y="220" width="22" height="75" fill="#0A2A73" />
+                                <rect x="630" y="190" width="22" height="105" fill="#0A2A73" />
+
+                                <!-- Decorative Orbit Dots -->
+                                <circle cx="470" cy="200" r="8" fill="#D4A62A" />
+                                <circle cx="735" cy="315" r="8" fill="#0A2A73" />
+                                <circle cx="685" cy="110" r="8" fill="#D4A62A" />
+
+                                <!-- MYREN -->
+                                <text x="600" y="540" text-anchor="middle" font-family="Cinzel, serif" font-size="120"
+                                    letter-spacing="6">
+
+                                    <tspan fill="#0A2A73">MY</tspan>
+                                    <tspan fill="#D4A62A">REN</tspan>
+                                </text>
+
+                                <!-- SAC -->
+                                <line x1="340" y1="610" x2="470" y2="610" stroke="#D4A62A" stroke-width="3" />
+
+                                <text x="600" y="635" text-anchor="middle" font-family="Montserrat, sans-serif"
+                                    font-size="48" letter-spacing="14" fill="#0A2A73">
+                                    SAC
+                                </text>
+
+                                <line x1="730" y1="610" x2="860" y2="610" stroke="#D4A62A" stroke-width="3" />
+
+                                <!-- ONLINE -->
+                                <rect x="365" y="700" rx="28" ry="28" width="470" height="85" fill="#0A2A73" />
+
+                                <text x="600" y="755" text-anchor="middle" font-family="Montserrat, sans-serif"
+                                    font-size="48" letter-spacing="18" fill="white">
+                                    ONLINE
+                                </text>
+
+                                <!-- Slogan -->
+                                <text x="600" y="870" text-anchor="middle" font-family="Montserrat, sans-serif"
+                                    font-size="28" letter-spacing="7" fill="#0A2A73">
+                                    SEGURIDAD • DISCRECIÓN • CONFIANZA
+                                </text>
+
+                                <!-- Bottom Lines -->
+                                <line x1="420" y1="940" x2="540" y2="940" stroke="#D4A62A" stroke-width="3" />
+
+                                <line x1="660" y1="940" x2="780" y2="940" stroke="#D4A62A" stroke-width="3" />
+
+                                <!-- Shield -->
+                                <path d="M600 920
+                    L630 935
+                    L630 980
+                    Q600 1010 570 980
+                    L570 935 Z" fill="white" stroke="#D4A62A" stroke-width="5" />
+
+                                <!-- Lock -->
+                                <rect x="583" y="948" width="34" height="28" rx="5" fill="#0A2A73" />
+
+                                <path d="M590 948
+                    V938
+                    A10 10 0 0 1 610 938
+                    V948" stroke="#0A2A73" stroke-width="5" fill="none" />
+
+                                <!-- M inside lock -->
+                                <text x="600" y="968" text-anchor="middle" font-family="Montserrat, sans-serif"
+                                    font-size="18" font-weight="bold" fill="white">
+                                    M
+                                </text>
+
+                            </svg>
                     </li>
                     <ul class="pagina-informacion-1-texto">
                         <li>
