@@ -128,7 +128,7 @@
         </div>
         <ul class="lista-opciones">
             <li>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formulario-crear-editar-tipo-cambio">Agregar</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" @click="AbrirNuevoTipoCambio">Agregar</button>
             </li>
         </ul>
     </div>
@@ -173,6 +173,11 @@
                 
             },
             methods: {
+                AbrirNuevoTipoCambio:function(){
+                    this.tipo_cambio = this.NuevoTipoCambio();
+
+                    $("#formulario-crear-editar-tipo-cambio").modal("show");
+                },
                 ExisteError:function (id){
                     let existe = false;
 
@@ -321,9 +326,9 @@
                                 .then(response => response.json())
                                 .then(response => {
                                     if (response.success) {
-                                        app.RecuperarInformacion();
-
                                         $("#formulario-crear-editar-tipo-cambio").modal("hide");
+
+                                        app.RecuperarInformacion();
                                     } else {
                                         alert(response.mensaje);
 
