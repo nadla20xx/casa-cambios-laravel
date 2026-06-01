@@ -184,7 +184,7 @@
                                 </svg>
                             </li>
                             <ul>
-                                <li>01-7737491</li>
+                                <li>01-4228665</li>
                             </ul>
                         </ul>
                         <ul class="elemento-icono-informacion">
@@ -197,7 +197,7 @@
                                 </svg>
                             </li>
                             <ul>
-                                <li>938 579 148</li>
+                                <li>978-507878</li>
                             </ul>
                         </ul>
                         <ul class="elemento-icono-informacion">
@@ -210,8 +210,8 @@
                                 </svg>
                             </li>
                             <ul>
-                                <li>Av. Precursores 1192</li>
-                                <li>Oficina 504 San miguel - Lima</li>
+                                <li>AV. RIVERA NAVARRETE 762</li>
+                                <li>OF. 402 SAN ISIDRO - LIMA</li>
                             </ul>
                         </ul>
                     </ul>
@@ -260,10 +260,7 @@
             </div>
         </section>
         <section>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31211.047403311008!2d-76.9949696!3d-12.0860539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1779802375916!5m2!1ses-419!2spe"
-                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1159.8547629402353!2d-77.02603557116596!3d-12.093601205893362!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2spe!4v1780322156722!5m2!1ses-419!2spe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
     </div>
     <div class="footer">
