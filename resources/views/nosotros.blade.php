@@ -120,9 +120,6 @@
                         <a href="servicios">Servicios</a>
                     </li>
                     <li class="elemento-menu">
-                        <a href="#">Preguntas frecuentes</a>
-                    </li>
-                    <li class="elemento-menu">
                         <a href="contacto">Contactanos</a>
                     </li>
                 </ul>
@@ -143,7 +140,7 @@
             <div class="contenedor-seccion">
                 <ul>
                     <li>
-                        <img src="https://dollarclick.com.pe/storage/2022/01/Logo-e1641415724988.png" />
+                        <img src="/imagenes/logo3.png" />
                     </li>
                     <ul class="iconos-contenidos-informacion">
                         <ul class="iconos-contenidos">

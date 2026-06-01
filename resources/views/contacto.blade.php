@@ -154,9 +154,6 @@
                         <a href="servicios">Servicios</a>
                     </li>
                     <li class="elemento-menu">
-                        <a href="#">Preguntas frecuentes</a>
-                    </li>
-                    <li class="elemento-menu">
                         <a href="contacto">Contactanos</a>
                     </li>
                 </ul>

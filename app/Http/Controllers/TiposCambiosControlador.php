@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 use App\Models\TipoCambio;
+use App\Models\Moneda;
+
+use DB;
 
 class TiposCambiosControlador extends Controller
 {
@@ -14,7 +17,7 @@ class TiposCambiosControlador extends Controller
         $campo_orden        =   $request->query('campo_orden','fecha_cambio');
         $direccion_orden    =   $request->query('direccion_orden','desc');
         
-        return TipoCambio::orderBy($campo_orden,$direccion_orden)->get();
+        return TipoCambio::with('Moneda')->orderBy($campo_orden,$direccion_orden)->get();
     }
 
     public function show(Request $request,int $id_tipo_cambio)
@@ -37,14 +40,16 @@ class TiposCambiosControlador extends Controller
         $respuesta      =   ["success"=>true,"mensaje"=>'Se genero registro',"codigo_error"=>0];
 
         try{
+            
             $datos = $request->only(['id_moneda', 'valor','fecha_cambio','habilitado']);
 
             $tipo_cambio = new TipoCambio();
 
-            $tipo_cambio->id_moneda     =   $datos['id_moneda'];
-            $tipo_cambio->valor         =   $datos['valor'];
-            $tipo_cambio->fecha_cambio  =   $datos['fecha_cambio'];
-            $tipo_cambio->habilitado    =   $datos['habilitado'];
+            $tipo_cambio->id_moneda             =   $datos['id_moneda'];
+            $tipo_cambio->valor                 =   $datos['valor'];
+            $tipo_cambio->fecha_cambio          =   $datos['fecha_cambio'];
+            $tipo_cambio->habilitado            =   $datos['habilitado'];
+            $tipo_cambio->fecha_hora_registro   =   date("Y-m-d H:i:s");
 
             $tipo_cambio->save();
 
@@ -64,15 +69,34 @@ class TiposCambiosControlador extends Controller
 
             $tipo_cambio = TipoCambio::find($id_tipo_cambio);
 
-            $tipo_cambio->id_moneda     =   $datos['id_moneda'];
-            $tipo_cambio->valor         =   $datos['valor'];
-            $tipo_cambio->fecha_cambio  =   $datos['fecha_cambio'];
-            $tipo_cambio->habilitado    =   $datos['habilitado'];
+            $tipo_cambio->id_moneda                 =   $datos['id_moneda'];
+            $tipo_cambio->valor                     =   $datos['valor'];
+            $tipo_cambio->fecha_cambio              =   $datos['fecha_cambio'];
+            $tipo_cambio->habilitado                =   $datos['habilitado'];
+            $tipo_cambio->fecha_hora_modificacion   =   date("Y-m-d H:i:s");
 
             $tipo_cambio->save();
 
         } catch (Exception $e) {
             $respuesta  =   ["success"=>false,"mensaje"=>'Error al guardar el tipo de cambio: ' . $e->getMessage(),"codigo_error"=>$e->getCode()];
+        }finally {
+            return response()->json($respuesta, $respuesta['success']?200:500);
+        }
+    }
+
+    public function delete(Request $request,int $id_tipo_cambio)
+    {
+        $respuesta      =   ["success"=>true,"mensaje"=>'Se elimino registro',"codigo_error"=>0];
+
+        try{
+            $datos = $request->only(['id_moneda', 'valor','fecha_cambio','habilitado']);
+
+            $tipo_cambio = TipoCambio::find($id_tipo_cambio);
+
+            $tipo_cambio->delete();
+
+        } catch (Exception $e) {
+            $respuesta  =   ["success"=>false,"mensaje"=>'Error al guardar eleminar registro: ' . $e->getMessage(),"codigo_error"=>$e->getCode()];
         }finally {
             return response()->json($respuesta, $respuesta['success']?200:500);
         }
@@ -98,7 +122,8 @@ class TiposCambiosControlador extends Controller
     public function VerReporteTiposCambio(Request $request):View
     {
          return view('administrador.reporte-tipos-cambio', [
-            'tipos_cambios' => TipoCambio::with('Moneda')->orderBy("fecha_cambio","desc")->get()
+            'tipos_cambios' => TipoCambio::with('Moneda')->orderBy("fecha_cambio","desc")->get(),
+            'monedas' => Moneda::get(),
         ]);
     }
 }

@@ -1,0 +1,48 @@
+services:
+  db:
+    image: bitnami/mariadb:10.8
+    container_name: mariadb
+    restart: always
+    networks:
+      - laravel-network
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=desarrollo
+      - MARIADB_DATABASE=cambios
+      - MARIADB_BIND_ADDRESS=0.0.0.0
+      - MARIADB_PASSWORD=santiago
+      - MARIADB_ROOT_USER=administrador
+      - MARIADB_ROOT_PASSWORD=root
+    volumes:
+      - maria-10-8-data:/bitnami/mariadb
+    ports:
+      - "3306:3306"
+  laravel:    
+    image: bitnami/laravel:12.0.11-debian-12-r2
+    restart: always
+    container_name: laravel
+    ports:
+      - "8000:8000"
+    networks:
+      - laravel-network
+    environment:
+      - DB_HOST=mariadb
+      - DB_PORT=3306
+      - DB_USERNAME=desarrollo
+      - DB_DATABASE=cambios
+      - LARAVEL_DATABASE_PASSWORD=santiago
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+  composer:
+    image: composer:latest
+    container_name: composer-installer
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: ["composer", "install"]
+networks:
+  laravel-network:
+volumes:
+  maria-10-8-data:

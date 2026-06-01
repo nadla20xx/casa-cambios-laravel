@@ -12,6 +12,7 @@ Route::get('/user', function (Request $request) {
 Route::prefix('tipo-cambio')->group(function () {
     Route::get('/', [TiposCambiosControlador::class, 'index']);
     Route::get('/{id}', [TiposCambiosControlador::class, 'show']);
+    Route::delete('/{id}', [TiposCambiosControlador::class, 'delete']);
     Route::post('/', [TiposCambiosControlador::class, 'store']);
     Route::put('/{id}',[TiposCambiosControlador::class,'update']);
 

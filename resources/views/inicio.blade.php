@@ -27,9 +27,6 @@
                         <a href="servicios">Servicios</a>
                     </li>
                     <li class="elemento-menu">
-                        <a href="#">Preguntas frecuentes</a>
-                    </li>
-                    <li class="elemento-menu">
                         <a href="contacto">Contactanos</a>
                     </li>
                 </ul>
@@ -177,7 +174,7 @@
                         <div class="boton-iniciar-compra-venta boton-recibe-formulario">
                             <span>Recibes</span>
                             <span>S/</span>
-                            <span>@{{ tipo_cambio*valor_cambiar }}</span>
+                            <span>@{{ FormatearMonto(tipo_cambio * valor_cambiar) }}</span>
                         </div>
                     </ul>
                 </ul>
@@ -449,7 +446,7 @@
         },
         methods: {
             RecuperarTipoCambioHoy:function(){
-                fetch(`http://localhost/api/tipo-cambio/recuperar-tipo-cambio-fecha/<?php echo date("y-m-d")?>`,
+                fetch(`<?php echo env("APP_URL")?>/api/tipo-cambio/recuperar-tipo-cambio-fecha/<?php echo date("y-m-d")?>`,
                 {        
                     headers: {
                         "token": 'TOKEN',
@@ -463,6 +460,7 @@
                     console.error('Error al recuperar tipo cambio:', error);
                 });
             },
+            
         }
     });
 </script>
