@@ -205,7 +205,7 @@
                 <ul class="informacion-altas-exigencias">
                     <li>
                         <img class="imagen-1-altas-exigencias"
-                            src="https://dollarclick.com.pe/storage/2022/01/Chico-01-1.png" />
+                            src="/imagenes/Chico-01-1.png" />
                     </li>
                     <ul class="parte-derecha-altas-exigencias">
                         <li>

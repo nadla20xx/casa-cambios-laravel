@@ -344,7 +344,7 @@
                 <ul class="informacion-altas-exigencias">
                     <li>
                         <img class="imagen-1-altas-exigencias"
-                            src="https://dollarclick.com.pe/storage/2022/01/Chico-01-1.png" />
+                            src="/imagenes/Chico-01-1.png" />
                     </li>
                     <ul class="parte-derecha-altas-exigencias">
                         <li>
@@ -387,7 +387,7 @@
                                     </ul>
                                     <li class="informacion-es-imporante">
                                         <img class="imagen-es-importante"
-                                            src="https://dollarclick.com.pe/storage/2022/01/banco-de-credito-del-peru-bcp-logo-vector-1-pgl5uj86jbyoushvws490hlnpej7vb7ajbwj64jtrw.png">
+                                            src="/imagenes/logo_bcp.png">
                                     </li>
                                 </ul>
                                 <ul class="elemento-es-importante">
@@ -399,7 +399,7 @@
                                     </ul>
                                     <li class="informacion-es-imporante">
                                         <img class="imagen-es-importante"
-                                            src="https://dollarclick.com.pe/storage/2022/01/banco-de-credito-del-peru-bcp-logo-vector-1-pgl5uj86jbyoushvws490hlnpej7vb7ajbwj64jtrw.png">
+                                            src="/imagenes/logo_bcp.png">
                                     </li>
                                 </ul>
                             </ul>
