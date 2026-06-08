@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\TipoCambio;
 use App\Models\Moneda;
+use App\Models\Usuario;
 
 use DB;
 
@@ -121,9 +123,43 @@ class TiposCambiosControlador extends Controller
 
     public function VerReporteTiposCambio(Request $request):View
     {
-         return view('administrador.reporte-tipos-cambio', [
+        return view('administrador.reporte-tipos-cambio', [
             'tipos_cambios' => TipoCambio::with('Moneda')->orderBy("fecha_cambio","desc")->get(),
             'monedas' => Moneda::get(),
         ]);
+    }
+
+    public function VerificarAccesos(Request $request)
+    {
+        $respuesta      =   ["success"=>true,"mensaje"=>'Accesos validos',"codigo_error"=>0];
+
+        try{
+            $datos = $request->only(['email', 'password']);
+
+            $usuario = Usuario::where("email",$datos['email'])->where("password",$datos['password'])->where("habilitado",1)->first();
+
+            if(empty($usuario)){
+                $respuesta  =   ["success"=>false,"mensaje"=>'Accesos invalidos',"codigo_error"=>0];
+            }else{
+                //session(['id_usuario' => $usuario->id_usuario]);
+                //session(['email' => $usuario->email]);
+
+                //$request->session()->push('id_usuario', $usuario->id_usuario);
+                //$request->session()->push('email', $usuario->email);
+                //session(['id_usuario' => $usuario->id_usuario]);
+                //session(['email' => $usuario->email]);
+
+                Auth::login($usuario);                
+
+                $usuario->fecha_hora_ultimo_acceso = date("Y-m-d H:i:s");
+
+                $usuario->save();
+            }
+
+        } catch (Exception $e) {
+            $respuesta  =   ["success"=>false,"mensaje"=>'Error al guardar el tipo de cambio: ' . $e->getMessage(),"codigo_error"=>$e->getCode()];
+        }finally {
+            return response()->json($respuesta, $respuesta['success']?200:500);
+        }
     }
 }
