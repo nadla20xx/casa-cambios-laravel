@@ -28,4 +28,3 @@ Route::prefix('usuarios')->group(function () {
     Route::put('/{id}',[UsuariosControlador::class,'update']);
 });
 
-Route::post('/verificar-accesos', [TiposCambiosControlador::class, 'VerificarAccesos'])->name('verificar-accesos');

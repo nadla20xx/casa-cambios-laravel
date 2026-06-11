@@ -44,6 +44,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Tipos de cambio</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo route("administrador-usuarios")?>">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo route("cerrar-session")?>">Cerrar Sesion</a>
+                    </li>
                 </ul>
            
             </div>

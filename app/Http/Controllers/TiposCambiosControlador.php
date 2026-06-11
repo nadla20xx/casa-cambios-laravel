@@ -11,6 +11,7 @@ use App\Models\Moneda;
 use App\Models\Usuario;
 
 use DB;
+use Exception;
 
 class TiposCambiosControlador extends Controller
 {
@@ -135,25 +136,17 @@ class TiposCambiosControlador extends Controller
 
         try{
             $datos = $request->only(['email', 'password']);
+            
+            if (Auth::attempt(['email' => $datos['email'], 'password' => $datos["password"]])) {
+                //$request->session()->regenerate();
 
-            $usuario = Usuario::where("email",$datos['email'])->where("password",$datos['password'])->where("habilitado",1)->first();
-
-            if(empty($usuario)){
-                $respuesta  =   ["success"=>false,"mensaje"=>'Accesos invalidos',"codigo_error"=>0];
-            }else{
-                //session(['id_usuario' => $usuario->id_usuario]);
-                //session(['email' => $usuario->email]);
-
-                //$request->session()->push('id_usuario', $usuario->id_usuario);
-                //$request->session()->push('email', $usuario->email);
-                //session(['id_usuario' => $usuario->id_usuario]);
-                //session(['email' => $usuario->email]);
-
-                Auth::login($usuario);                
+                $usuario = Usuario::where("email",$datos['email'])->where("password",$datos['password'])->where("habilitado",1)->first();
 
                 $usuario->fecha_hora_ultimo_acceso = date("Y-m-d H:i:s");
 
                 $usuario->save();
+            }else{
+                $respuesta  =   ["success"=>false,"mensaje"=>'Accesos invalidos',"codigo_error"=>0];
             }
 
         } catch (Exception $e) {
@@ -161,5 +154,12 @@ class TiposCambiosControlador extends Controller
         }finally {
             return response()->json($respuesta, $respuesta['success']?200:500);
         }
+    }
+
+    public function CerrarSession(Request $request)
+    {
+        Auth::logout();
+    
+        return redirect(route("login"));
     }
 }

@@ -5,8 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Usuario extends Model
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class Usuario extends Authenticatable
 {
+    /** @use HasFactory<UserFactory> */
+    use HasFactory, Notifiable;
+    
     /**
      * The table associated with the model.
      *

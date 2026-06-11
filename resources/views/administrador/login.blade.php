@@ -160,13 +160,13 @@
                 },
                 VeriricarAccesos:function(){
                     if(this.FormularioValido()){                        
-                        fetch('/api/verificar-accesos',
+                        fetch('/verificar-accesos',
                             {
                                 method: "POST",
                                 headers: {
                                     "token": 'TOKEN',
                                     'Content-Type': 'application/json',
-                                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
                                 },
                                 body: JSON.stringify(this.usuario)
                             })
