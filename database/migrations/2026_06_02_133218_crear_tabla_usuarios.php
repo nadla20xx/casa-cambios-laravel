@@ -18,6 +18,7 @@ return new class extends Migration
             $table->dateTime('fecha_hora_registro');
             $table->dateTime('fecha_hora_ultimo_login')->nullable();
             $table->tinyInteger('habilitado')->default(1);
+            $table->string("remember_token",100)->nullable();
         });
     }
 

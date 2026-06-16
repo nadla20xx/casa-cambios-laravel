@@ -10,8 +10,9 @@ use App\Models\Moneda;
 use App\Models\Usuario;
 
 use DB;
-use Hash;
+
 use Exception;
+use Illuminate\Support\Facades\Hash;
 
 class UsuariosControlador extends Controller
 {
