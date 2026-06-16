@@ -203,6 +203,8 @@
                     {        
                         headers: {
                             "token": 'TOKEN',
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
                         }
                     })
                     .then(response => response.json())
@@ -222,6 +224,8 @@
                     {        
                         headers: {
                             "token": 'TOKEN',
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
                         }
                     })
                     .then(response => response.json())

@@ -10,6 +10,8 @@ use App\Models\Moneda;
 use App\Models\Usuario;
 
 use DB;
+use Hash;
+use Exception;
 
 class UsuariosControlador extends Controller
 {
@@ -47,7 +49,7 @@ class UsuariosControlador extends Controller
             $usuario = new Usuario();
 
             $usuario->email                 =   $datos['email'];
-            $usuario->password              =   $datos['password'];
+            $usuario->password              =   Hash::make($datos['password']);
             $usuario->fecha_hora_registro   =   date("Y-m-d H:i:s");
             $usuario->habilitado            =   $datos['habilitado'];
 
@@ -70,7 +72,7 @@ class UsuariosControlador extends Controller
             $usuario = Usuario::find($id_usuario);
 
             if(!empty($datos['password'])){
-                $usuario->password = $datos['password'];
+                $usuario->password = Hash::make($datos['password']);
             }
 
             $usuario->email                 =   $datos['email'];

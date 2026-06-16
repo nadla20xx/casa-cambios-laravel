@@ -151,7 +151,9 @@
                     .then(response => response.json())
                     .then(data => {
                         app._data.usuario               =   data.data;
-                        app._data.usuario.re_password   =   app._data.usuario.password;
+                        //app._data.usuario.re_password   =   app._data.usuario.password;
+                        app._data.usuario.password      =   "";
+                        app._data.usuario.re_password   =   "";
 
                         $("#formulario-crear-editar-tipo-cambio").modal("show");
                     })
@@ -181,12 +183,14 @@
                         this.errores.push('email');
                     }
 
-                    if (!this.usuario.password) {
-                        this.errores.push('password');
-                    }
+                    if(!this.usuario.id_usuario){
+                        if (!this.usuario.password) {
+                            this.errores.push('password');
+                        }
 
-                    if (!this.usuario.re_password) {
-                        this.errores.push('re_password');
+                        if (!this.usuario.re_password) {
+                            this.errores.push('re_password');
+                        }
                     }
 
                     if (this.usuario.re_password!=this.usuario.password) {
